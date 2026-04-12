@@ -327,6 +327,7 @@
                     <option value="Unit 3">Unit 3</option>
                     <option value="Unit 4">Unit 4</option>
                     <option value="Unit 5">Unit 5</option>
+                    <option value="Unit 6">Unit 6</option>
                     <option value="General">General</option>
                 </select>
             </div>
@@ -339,6 +340,11 @@
                 <label>File Link (Google Drive / Adobe / Any URL)</label>
                 <input type="url" id="f-link" placeholder="https://drive.google.com/...">
                 <span class="error-msg" id="linkErr">Please paste a valid link</span>
+            </div>
+            <div class="form-group full">
+                <label>Choose File</label>
+                <input type="file" id="f-file" accept=".pdf,.doc,.docx,.ppt,.pptx,.txt,image/*">
+                <span class="error-msg" id="fileErr">Please choose a file or paste a valid link</span>
             </div>
             <div class="form-group">
                 <label>Icon (emoji)</label>
@@ -458,29 +464,76 @@
         localStorage.setItem('incloud_notes', JSON.stringify(notes));
     }
 
-    function addNote() {
+    function readFileAsDataURL(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = () => reject(reader.error);
+            reader.readAsDataURL(file);
+        });
+    }
+
+    async function addNote() {
         const subject = document.getElementById('f-subject').value;
         const unit    = document.getElementById('f-unit').value;
-        const title   = document.getElementById('f-title').value.trim();
-        const link    = document.getElementById('f-link').value.trim();
+        const titleEl = document.getElementById('f-title');
+        const title   = titleEl.value.trim();
+        const linkEl  = document.getElementById('f-link');
+        const link    = linkEl.value.trim();
+        const fileEl  = document.getElementById('f-file');
+        const file    = fileEl.files[0];
         const icon    = document.getElementById('f-icon').value.trim() || '📄';
 
-        ['subjectErr','titleErr','linkErr'].forEach(id => document.getElementById(id).style.display = 'none');
+        ['subjectErr','titleErr','linkErr','fileErr'].forEach(id => document.getElementById(id).style.display = 'none');
 
         let valid = true;
         if (!subject) { document.getElementById('subjectErr').style.display = 'block'; valid = false; }
-        if (!title)   { document.getElementById('titleErr').style.display = 'block'; valid = false; }
-        if (!link)    { document.getElementById('linkErr').style.display = 'block'; valid = false; }
+        if (!title && !file) { document.getElementById('titleErr').textContent = 'Please enter a title or choose a file'; document.getElementById('titleErr').style.display = 'block'; valid = false; }
+        if (!link && !file) { document.getElementById('fileErr').style.display = 'block'; valid = false; }
+        if (link) {
+            try {
+                new URL(link);
+            } catch (err) {
+                document.getElementById('linkErr').style.display = 'block';
+                valid = false;
+            }
+        }
+        if (file && file.size > 4 * 1024 * 1024) {
+            document.getElementById('fileErr').textContent = 'File is too large. Use a smaller file under 4MB.';
+            document.getElementById('fileErr').style.display = 'block';
+            valid = false;
+        }
         if (!valid) return;
 
         const notes = getNotes();
-        notes.push({ id: Date.now(), subject, unit, title, link, icon, date: new Date().toLocaleDateString() });
+        let noteLink = link;
+        let fileName = null;
+        let fileUpload = false;
+        if (file) {
+            const dataUrl = await readFileAsDataURL(file);
+            noteLink = dataUrl;
+            fileName = file.name;
+            fileUpload = true;
+        }
+
+        notes.push({
+            id: Date.now(),
+            subject,
+            unit,
+            title: title || (fileName || 'Uploaded File'),
+            link: noteLink,
+            icon,
+            date: new Date().toLocaleDateString(),
+            fileUpload,
+            fileName
+        });
         saveNotes(notes);
 
         document.getElementById('f-unit').value = '';
-        document.getElementById('f-title').value = '';
+        titleEl.value = '';
         document.getElementById('f-icon').value = '📄';
-        document.getElementById('f-link').value = '';
+        linkEl.value = '';
+        fileEl.value = '';
         if (!USERS[currentUser].subject) document.getElementById('f-subject').value = '';
 
         renderNotes();
