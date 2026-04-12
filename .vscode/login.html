@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InCloudHub – Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at top left, #1a1a1a, #0a0a0a 80%);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .login-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(247, 140, 37, 0.2);
+            border-radius: 24px;
+            padding: 45px 40px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #F78C25;
+        }
+
+        .logo p {
+            color: #aaa;
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            color: #ccc;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            outline: none;
+        }
+
+        input::placeholder { color: #555; }
+
+        input:focus, select:focus {
+            border-color: #F78C25;
+            box-shadow: 0 0 0 3px rgba(247, 140, 37, 0.15);
+        }
+
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23F78C25' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 18px center;
+        }
+
+        select option {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background: #F78C25;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #e07d1a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(247, 140, 37, 0.35);
+        }
+
+        .login-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+        .footer-text {
+            text-align: center;
+            color: #555;
+            font-size: 12px;
+            margin-top: 25px;
+        }
+
+        .admin-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #F78C25;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .admin-link:hover { opacity: 1; }
+
+        .error-msg {
+            color: #ff6b6b;
+            font-size: 12px;
+            margin-top: 6px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<script src="config.js"></script>
+
+<div class="login-card">
+    <div class="logo">
+        <h1>☁️ InCloudHub</h1>
+        <p>Sign in to access your campus portal</p>
+    </div>
+
+    <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" id="name" placeholder="Enter your full name">
+        <span class="error-msg" id="nameErr">Please enter your name</span>
+    </div>
+
+    <div class="form-group">
+        <label>Register Number</label>
+        <input type="text" id="regno" placeholder="Ex: 22A91A0501">
+        <span class="error-msg" id="regErr">Please enter your register number</span>
+    </div>
+
+    <div class="form-group">
+        <label>Branch</label>
+        <select id="branch">
+            <option value="">-- Select your branch --</option>
+            <option value="CSE">💻 CSE – Computer Science</option>
+            <option value="AIML">🤖 AIML – AI & Machine Learning</option>
+            <option value="AIDS">⚛️ AIDS – AI & Data Science</option>
+            <option value="MECH">⚙️ MECH – Mechanical</option>
+            <option value="CIVIL">🏗️ CIVIL – Civil</option>
+            <option value="CSD">🔌 CSD – Computer Science & Designing</option>
+            <option value="CSBS">🌐 CSBS – Computer Science & Business System</option>
+        </select>
+        <span class="error-msg" id="branchErr">Please select your branch</span>
+    </div>
+
+    <button class="login-btn" onclick="handleLogin()">Login →</button>
+
+    <a class="admin-link" href="admin.html">🔐 Admin Access</a>
+
+    <div class="footer-text">© 2026 InCloudHub | Designed by Lokesh Thanala 🚀</div>
+</div>
+
+<script>
+    const SHEET_URL = CONFIG.SHEET_URL;
+
+    function handleLogin() {
+        const name   = document.getElementById('name').value.trim();
+        const regno  = document.getElementById('regno').value.trim();
+        const branch = document.getElementById('branch').value;
+
+        document.getElementById('nameErr').style.display = 'none';
+        document.getElementById('regErr').style.display = 'none';
+        document.getElementById('branchErr').style.display = 'none';
+
+        let valid = true;
+        if (!name)   { document.getElementById('nameErr').style.display = 'block'; valid = false; }
+        if (!regno)  { document.getElementById('regErr').style.display = 'block'; valid = false; }
+        if (!branch) { document.getElementById('branchErr').style.display = 'block'; valid = false; }
+        if (!valid) return;
+
+        const btn = document.querySelector('.login-btn');
+        btn.disabled = true;
+        btn.textContent = 'Logging in...';
+
+        const timestamp = new Date().toLocaleString();
+
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('regno', regno);
+        formData.append('branch', branch);
+        formData.append('timestamp', timestamp);
+
+        fetch(SHEET_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: formData
+        })
+        .then(() => {
+            sessionStorage.setItem('user', JSON.stringify({ name, regno, branch }));
+            window.location.href = 'home.html';
+        })
+        .catch(() => {
+            sessionStorage.setItem('user', JSON.stringify({ name, regno, branch }));
+            window.location.href = 'home.html';
+        });
+    }
+</script>
+
+</body>
+</html>
