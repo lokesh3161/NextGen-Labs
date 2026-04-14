@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextGen Labs | Where Every Idea Begins</title>
+    <meta name="description" content="A community of student founders building real startups.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#" class="logo">NextGen<span>Labs</span></a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#features">Features</a>
+                <a href="#ecosystem">Ecosystem</a>
+                <a href="#join" class="btn-primary small">Join Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="fade-in-up">Where Every Idea <span>Begins</span></h1>
+            <p class="tagline fade-in-up delay-1">A community of student founders building real startups.</p>
+            <div class="hero-cta fade-in-up delay-2">
+                <a href="#join" class="btn-primary glow-effect">Join The Network</a>
+                <a href="#about" class="btn-secondary">Learn More</a>
+            </div>
+        </div>
+        <div class="hero-background"></div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-card glass-card fade-in-up">
+                <h2>Empowering Student Founders</h2>
+                <p>NextGen Labs is a premier founder network where students collaborate, build startups, and grow
+                    together. We provide the ecosystem you need to turn your dorm-room idea into a real-world venture.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Why Join NextGen Labs?</h2>
+            <div class="features-grid">
+                <div class="feature-card glass-card hover-glow">
+                    <div class="icon">🚀</div>
+                    <h3>Build Startups</h3>
+                    <p>Access resources and mentorship to take your product from 0 to 1.</p>
+                </div>
+                <div class="feature-card glass-card hover-glow">
+                    <div class="icon">🤝</div>
+                    <h3>Find Co-Founders</h3>
+                    <p>Connect with passionate students with complementary skill sets.</p>
+                </div>
+                <div class="feature-card glass-card hover-glow">
+                    <div class="icon">💡</div>
+                    <h3>Work on Real Ideas</h3>
+                    <p>Stop doing toy projects. Solve real problems that matter.</p>
+                </div>
+                <div class="feature-card glass-card hover-glow">
+                    <div class="icon">🌍</div>
+                    <h3>Launch Projects</h3>
+                    <p>Get your product in front of real users and early adopters.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ecosystem Section -->
+    <section class="ecosystem" id="ecosystem">
+        <div class="container">
+            <h2 class="section-title">The Founder Journey</h2>
+            <div class="timeline">
+                <div class="stage glass-card">
+                    <div class="stage-number">01</div>
+                    <div class="stage-content">
+                        <h3>Idea Stage</h3>
+                        <p>Validate your concept and refine your pitch with peer feedback.</p>
+                    </div>
+                </div>
+                <div class="stage glass-card">
+                    <div class="stage-number">02</div>
+                    <div class="stage-content">
+                        <h3>Building Stage</h3>
+                        <p>Develop your MVP quickly by collaborating with talented builders.</p>
+                    </div>
+                </div>
+                <div class="stage glass-card">
+                    <div class="stage-number">03</div>
+                    <div class="stage-content">
+                        <h3>Launch Stage</h3>
+                        <p>Go to market, acquire your first users, and prepare for scale.</p>
+                    </div>
+                </div>
+                <div class="timeline-line"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Section -->
+    <section class="join" id="join">
+        <div class="container">
+            <div class="form-container glass-card">
+                <h2 class="section-title text-center">Submit Your Application</h2>
+                <p class="text-center form-subtitle">Join the most active student founder network.</p>
+
+                <form id="joinForm" class="join-form">
+                    <div class="form-group grid-2">
+                        <div class="input-wrapper">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" required placeholder="Jane Doe">
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="branchYear">Branch & Year</label>
+                            <input type="text" id="branchYear" name="branchYear" required placeholder="CSE, 3rd Year">
+                        </div>
+                    </div>
+
+                    <div class="form-group grid-2">
+                        <div class="input-wrapper">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="+91 XXXXX XXXXX">
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="jane@example.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <label for="building">What are you building?</label>
+                            <input type="text" id="building" name="building" required
+                                placeholder="A SaaS for college events">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-wrapper">
+                            <label for="ideaDesc">Describe your idea</label>
+                            <textarea id="ideaDesc" name="ideaDesc" rows="3" required
+                                placeholder="What problem does it solve and how?"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group grid-2">
+                        <div class="input-wrapper">
+                            <label for="skillsHas">Skills you have</label>
+                            <input type="text" id="skillsHas" name="skillsHas" required
+                                placeholder="React, Node.js, Design">
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="skillsWant">Skills you want to learn</label>
+                            <input type="text" id="skillsWant" name="skillsWant" required
+                                placeholder="Marketing, Sales, AI">
+                        </div>
+                    </div>
+
+                    <div class="form-group grid-2">
+                        <div class="input-wrapper">
+                            <label for="commitment">Commitment Level (1-10)</label>
+                            <input type="number" id="commitment" name="commitment" min="1" max="10" required
+                                placeholder="8">
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="whySelect">Why should we select you?</label>
+                            <input type="text" id="whySelect" name="whySelect" required
+                                placeholder="I am highly driven to build...">
+                        </div>
+                    </div>
+
+                    <div class="form-submit">
+                        <button type="submit" class="btn-primary submit-btn glow-effect" id="submitBtn">
+                            <span class="btn-text">Submit Application</span>
+                            <span class="btn-loader" style="display: none;"></span>
+                        </button>
+                        <div id="formMessage" class="form-message"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <a href="#" class="logo footer-logo">NextGen<span>Labs</span></a>
+            <p>Different Ideas. One Ecosystem.</p>
+            <div class="footer-contact" style="margin-top: 1.5rem; color: var(--text-light);">
+                <p><a href="tel:+919100280705" style="color: var(--primary); margin-right: 10px;">Call Us</a> | <a
+                        href="mailto:thanalalokesh5@gmail.com" style="color: var(--primary); margin-left: 10px;">Email
+                        Us</a></p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NextGen Labs. All rights reserved.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.85rem;">powered by <a href="https://incloudhub.vercel.app"
+                        target="_blank" style="color: var(--primary); font-weight: 500;">InCloudHub</a> | Designed by
+                    Lokesh Thanala</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
