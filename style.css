@@ -45,6 +45,23 @@ body::before {
     pointer-events: none;
 }
 
+/* Watermark */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHpPI6K9Ikj8QKDMCuVr9CroAl_lBmYaQuCKYYhf07SEupVHYzSPaY0MLljQfynBkbNbcL_SXceOlvGtPJHM5U3WoMV_ntBLAra0uUiXGZtg9IVf4QdvLiWs2wSpevPEmljxwdNooopo8Ro2pSsEzilNXuvaFGfh1iqzjQObyftd_n-Qax4TsbaRL3wH2R/s994/twologos.jpeg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    z-index: -2;
+    pointer-events: none;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -222,6 +239,13 @@ a {
 
 .logo span {
     color: var(--primary);
+}
+
+.nav-logo-img {
+    height: 32px;
+    width: auto;
+    border-radius: 4px;
+    object-fit: contain;
 }
 
 .nav-links {
