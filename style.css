@@ -226,6 +226,14 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+}
+
+.nav-brand-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-shrink: 0;
 }
 
 .logo {
@@ -235,6 +243,7 @@ a {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    white-space: nowrap;
 }
 
 .logo span {
@@ -246,6 +255,7 @@ a {
     width: auto;
     border-radius: 4px;
     object-fit: contain;
+    transition: height 0.2s ease;
 }
 
 .nav-links {
@@ -261,6 +271,53 @@ a {
 
 .nav-links a:not(.btn-primary):hover {
     color: var(--primary);
+}
+
+/* Mobile Nav Toggle Button */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    z-index: 1002;
+    transition: background 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.nav-toggle:hover {
+    background: rgba(255, 61, 0, 0.08);
+}
+
+.nav-toggle .bar {
+    width: 22px;
+    height: 2.2px;
+    background: var(--text-dark);
+    border-radius: 2px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease, background-color 0.3s ease;
+    transform-origin: center;
+}
+
+.nav-toggle.active .bar:nth-child(1) {
+    transform: translateY(7.2px) rotate(45deg);
+    background: var(--primary);
+}
+
+.nav-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.nav-toggle.active .bar:nth-child(3) {
+    transform: translateY(-7.2px) rotate(-45deg);
+    background: var(--primary);
 }
 
 /* Hero Section */
@@ -752,6 +809,14 @@ footer p {
     50% { transform: translateX(4px); }
 }
 
+/* Carousel Stage Container */
+.portfolio-carousel-stage {
+    width: 100%;
+    height: 520px;
+    position: relative;
+    max-width: 100%;
+}
+
 /* Spotlight Card below Carousel */
 .venture-spotlight-card {
     max-width: 820px;
@@ -1139,10 +1204,29 @@ footer p {
     padding: 0.9rem 2.2rem;
 }
 
-/* Responsive adjustments */
+/* ==================================================
+   RESPONSIVE DESIGN SYSTEM (MOBILE-FIRST POLISH)
+   ================================================== */
+
+/* Horizontal Overflow Guard */
+html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+/* Tablet & Smaller Desktops (<= 992px) */
 @media (max-width: 992px) {
+    .container {
+        padding: 0 1.75rem;
+    }
+
     .portfolio-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .portfolio-carousel-stage {
+        height: 480px;
     }
 
     .portfolio-more-card {
@@ -1162,51 +1246,452 @@ footer p {
     }
 }
 
-@media (max-width: 768px) {
+/* Mobile Navigation Transformation (<= 860px) */
+@media (max-width: 860px) {
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-content {
+        padding: 0.85rem 1.25rem;
+    }
+
+    .nav-logo-img {
+        height: 36px;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+
     .nav-links {
-        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        background: rgba(250, 249, 246, 0.98);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.85rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
+        transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                    visibility 0.35s ease;
+        z-index: 1001;
+        padding: 2rem;
+    }
+
+    .nav-links.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .nav-links a:not(.btn-primary) {
+        font-size: 1.45rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        padding: 0.5rem 1rem;
+        transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-links a:not(.btn-primary):hover,
+    .nav-links a:not(.btn-primary):active {
+        color: var(--primary);
+        transform: scale(1.05);
+    }
+
+    .nav-links .nav-btn {
+        font-size: 1.1rem;
+        padding: 0.9rem 2.6rem;
+        border-radius: 999px;
+        margin-top: 0.75rem;
+        box-shadow: 0 8px 24px rgba(255, 61, 0, 0.35);
+    }
+}
+
+/* Tablet & Mobile Breakpoint (<= 768px) */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1.25rem;
+    }
+
+    /* Typography Clamping */
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2.25rem;
+    }
+
+    /* Section Padding Compression */
+    .about,
+    .features,
+    .ecosystem,
+    .portfolio-section,
+    .join {
+        padding: 3.75rem 0;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding-top: 100px;
+        padding-bottom: 3.5rem;
+        min-height: auto;
+    }
+
+    .hero-content {
+        padding: 0 0.5rem;
     }
 
     .hero h1 {
-        font-size: 3rem;
+        font-size: clamp(2.3rem, 7.5vw, 3.4rem);
+        letter-spacing: -0.02em;
+        line-height: 1.18;
+    }
+
+    .tagline {
+        font-size: 1.15rem;
+        margin-bottom: 2.25rem;
+    }
+
+    /* Features Grid */
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .feature-card {
+        padding: 1.6rem 1.35rem;
+        border-radius: 16px;
+    }
+
+    /* Ecosystem Timeline */
+    .timeline {
+        gap: 1.5rem;
+    }
+
+    .timeline-line {
+        left: 28px;
+        top: 35px;
+        bottom: 35px;
+        opacity: 0.25;
+    }
+
+    .stage {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+        padding: 1.35rem 1.15rem;
+        gap: 1.15rem;
+        border-radius: 16px;
+    }
+
+    .stage-number {
+        width: 56px;
+        height: 56px;
+        font-size: 1.3rem;
+        border-width: 2px;
+        box-shadow: 0 4px 12px rgba(255, 61, 0, 0.08);
+    }
+
+    .stage-content h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.35rem;
+    }
+
+    .stage-content p {
+        font-size: 0.92rem;
+        line-height: 1.55;
+    }
+
+    /* NextGen Portfolio Header */
+    .portfolio-header {
+        margin-bottom: 2.5rem;
     }
 
     .portfolio-headline {
         font-size: 2.15rem;
+        line-height: 1.2;
     }
 
+    .portfolio-subcopy {
+        font-size: 0.98rem;
+    }
+
+    /* 3D Circular Carousel Showcase */
+    .carousel-showcase-box {
+        padding: 1.5rem 1rem 1.75rem;
+        border-radius: 20px;
+        margin-bottom: 3.5rem;
+    }
+
+    .portfolio-carousel-stage {
+        height: 420px;
+    }
+
+    .portfolio-controls-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.85rem;
+        padding-bottom: 1rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .portfolio-controls-tabs {
+        display: flex;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+        scrollbar-width: none;
+        gap: 0.35rem;
+        padding: 0.3rem;
+    }
+
+    .portfolio-controls-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .portfolio-control-btn {
+        flex-shrink: 0;
+        padding: 0.55rem 0.95rem;
+        font-size: 0.82rem;
+        white-space: nowrap;
+    }
+
+    .portfolio-interaction-hint {
+        justify-content: center;
+        font-size: 0.78rem;
+    }
+
+    /* Synchronized Spotlight Card */
+    .venture-spotlight-card {
+        padding: 1.25rem 1.15rem;
+        border-radius: 14px;
+        margin-top: 1.25rem;
+    }
+
+    .spotlight-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.85rem;
+    }
+
+    .spotlight-left {
+        width: 100%;
+    }
+
+    .spotlight-title {
+        font-size: 1.35rem;
+        margin-bottom: 0.35rem;
+    }
+
+    .spotlight-desc {
+        font-size: 0.88rem;
+        line-height: 1.5;
+    }
+
+    .spotlight-right {
+        width: 100%;
+        padding-top: 0.75rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .spotlight-tagline {
+        font-size: 0.82rem;
+    }
+
+    /* Venture Group Header */
     .group-header {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.6rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .group-headline {
+        font-size: 1.4rem;
+    }
+
+    .group-subline {
+        font-size: 0.9rem;
+    }
+
+    /* Application Form */
+    .form-container {
+        padding: 2.25rem 1.35rem !important;
+        border-radius: 20px;
+    }
+
+    .form-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
     }
 
     .grid-2 {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 1.15rem;
     }
 
-    .form-container {
-        padding: 2rem !important;
+    input, textarea {
+        font-size: 16px !important; /* Prevents auto-zoom on mobile iOS */
+        padding: 0.85rem 1rem;
+        border-radius: 10px;
     }
 
-    .stage {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-    }
-
-    .timeline-line {
-        display: none;
+    .submit-btn {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        font-size: 1.05rem;
     }
 }
 
+/* Small Smartphone Breakpoint (<= 580px) */
 @media (max-width: 580px) {
-    .portfolio-grid {
-        grid-template-columns: 1fr;
+    .container {
+        padding: 0 1rem;
+    }
+
+    /* Navigation header compact layout */
+    .nav-content {
+        padding: 0.7rem 0.9rem;
+    }
+
+    .nav-brand-group {
+        gap: 0.75rem;
+    }
+
+    .nav-logo-img {
+        height: 32px;
+    }
+
+    .logo {
+        font-size: 1.15rem;
+    }
+
+    /* Hero CTA full-width buttons */
+    .hero h1 {
+        font-size: 2.15rem;
+    }
+
+    .tagline {
+        font-size: 1.05rem;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+        gap: 0.75rem;
+    }
+
+    .hero-cta .btn-primary,
+    .hero-cta .btn-secondary {
+        width: 100%;
+        padding: 0.85rem 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    /* About Section */
+    .about-card {
+        padding: 2.25rem 1.15rem;
+        border-radius: 16px;
+    }
+
+    .about-card h2 {
+        font-size: 1.45rem;
+    }
+
+    .about-card p {
+        font-size: 0.92rem;
+    }
+
+    /* 3D Carousel Stage on small phones */
+    .portfolio-carousel-stage {
+        height: 360px;
     }
 
     .portfolio-headline {
         font-size: 1.85rem;
+    }
+
+    /* Venture Cards Single Column */
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 1.15rem;
+    }
+
+    .venture-card {
+        padding: 1.35rem 1.15rem;
+        border-radius: 16px;
+    }
+
+    .venture-logo-box {
+        width: 64px;
+        height: 64px;
+        border-radius: 12px;
+    }
+
+    .venture-name {
+        font-size: 1.18rem;
+    }
+
+    .venture-desc {
+        font-size: 0.88rem;
+    }
+
+    /* Form Container on narrow screens */
+    .form-container {
+        padding: 1.75rem 1rem !important;
+        border-radius: 16px;
+    }
+
+    /* Footer styling on small devices */
+    footer {
+        padding: 3rem 1rem 2rem;
+    }
+
+    .footer-logo {
+        font-size: 1.4rem;
+    }
+
+    .footer-contact p {
+        font-size: 0.95rem;
+    }
+}
+
+/* Extra-Narrow Screens (<= 380px) */
+@media (max-width: 380px) {
+    .logo {
+        font-size: 1.05rem;
+    }
+
+    .nav-logo-img {
+        height: 28px;
+    }
+
+    .portfolio-carousel-stage {
+        height: 320px;
+    }
+
+    .stage-number {
+        width: 48px;
+        height: 48px;
+        font-size: 1.15rem;
+    }
+
+    .stage {
+        gap: 0.85rem;
+        padding: 1.15rem 0.9rem;
     }
 }

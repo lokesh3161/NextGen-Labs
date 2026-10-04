@@ -15,18 +15,25 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="nav-content">
-            <a href="#" class="logo">
-                NextGen<span>Labs|SRKR</span>
-            </a>
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg8rfGT5zKqlni3e4O51WBTk1u1Pwdi14W-i0em2Zj4MaRL_N1jbyY9fDvZMXiBCzTOk4xgBq0atG9Cm4An5aHieWOSapgt9huWQrtkduIUEnznzEZhvLASDqhYj2eKSxO6D_jpVvR8-OMfi-4z9zOK4a0AadZotktz1GWEpGq1SJ-_c-LsjdhYFMrockQm/s982/threelogos.jpg" alt="Logo" class="nav-logo-img">
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#features">Features</a>
-                <a href="#ecosystem">Ecosystem</a>
-                <a href="#portfolio">Portfolio</a>
-                <a href="#join" class="btn-primary small">Join Now</a>
+            <div class="nav-brand-group">
+                <a href="#" class="logo">
+                    NextGen<span>Labs|SRKR</span>
+                </a>
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg8rfGT5zKqlni3e4O51WBTk1u1Pwdi14W-i0em2Zj4MaRL_N1jbyY9fDvZMXiBCzTOk4xgBq0atG9Cm4An5aHieWOSapgt9huWQrtkduIUEnznzEZhvLASDqhYj2eKSxO6D_jpVvR8-OMfi-4z9zOK4a0AadZotktz1GWEpGq1SJ-_c-LsjdhYFMrockQm/s982/threelogos.jpg" alt="Partner Logos" class="nav-logo-img">
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="#about" class="nav-link-item">About</a>
+                <a href="#features" class="nav-link-item">Features</a>
+                <a href="#ecosystem" class="nav-link-item">Ecosystem</a>
+                <a href="#portfolio" class="nav-link-item">Portfolio</a>
+                <a href="#join" class="btn-primary small nav-link-item nav-btn">Join Now</a>
             </div>
         </div>
     </nav>
@@ -156,7 +163,7 @@
                 </div>
 
                 <!-- Circular Carousel Ring Component -->
-                <div id="portfolioCarouselStage" style="width: 100%; height: 560px; position: relative;"></div>
+                <div id="portfolioCarouselStage" class="portfolio-carousel-stage"></div>
 
                 <!-- Synchronized Active Spotlight Card -->
                 <div id="portfolioSpotlight" class="venture-spotlight-card"></div>

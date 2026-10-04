@@ -1,23 +1,72 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Navbar Scroll Effect
+    // 1. Navbar Scroll Effect & Mobile Menu
     const navbar = document.querySelector('.navbar');
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
+        if (window.scrollY > 40) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
     });
 
+    // Mobile Menu Toggle
+    if (navToggle && navLinks) {
+        function toggleMenu(open) {
+            const isOpen = open !== undefined ? open : !navLinks.classList.contains('active');
+            navLinks.classList.toggle('active', isOpen);
+            navToggle.classList.toggle('active', isOpen);
+            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            if (isOpen) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+
+        navToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu();
+        });
+
+        // Close mobile menu when clicking any nav link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    toggleMenu(false);
+                }
+            });
+        });
+
+        // Close on clicking outside navbar
+        document.addEventListener('click', (e) => {
+            if (navLinks.classList.contains('active') && !navbar.contains(e.target)) {
+                toggleMenu(false);
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                toggleMenu(false);
+            }
+        });
+    }
+
     // 2. Smooth Scrolling for Internal Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (!href || href === '#') return;
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const target = document.querySelector(href);
             if (target) {
-                const navHeight = navbar.offsetHeight;
+                const navHeight = navbar ? navbar.offsetHeight : 70;
+                const elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
                 window.scrollTo({
-                    top: target.offsetTop - navHeight,
+                    top: Math.max(0, elementPosition - navHeight + 5),
                     behavior: 'smooth'
                 });
             }

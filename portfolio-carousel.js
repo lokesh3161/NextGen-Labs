@@ -158,8 +158,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const items = getItemsForCategory(cat);
-    const isMobile = window.innerWidth < 640;
-    const cardWidth = isMobile ? 180 : 220;
+    const width = window.innerWidth;
+    let cardWidth = 220;
+    if (width < 380) {
+      cardWidth = 140;
+    } else if (width < 520) {
+      cardWidth = 160;
+    } else if (width < 768) {
+      cardWidth = 185;
+    } else if (width < 1024) {
+      cardWidth = 205;
+    }
 
     carouselInstance = window.CircularCarousel(container, {
       items: items,
