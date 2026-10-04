@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CircularCarousel.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -24,6 +25,7 @@
                 <a href="#about">About</a>
                 <a href="#features">Features</a>
                 <a href="#ecosystem">Ecosystem</a>
+                <a href="#portfolio">Portfolio</a>
                 <a href="#join" class="btn-primary small">Join Now</a>
             </div>
         </div>
@@ -81,6 +83,7 @@
                     <p>Get your product in front of real users and early adopters.</p>
                 </div>
             </div>
+            </div><!-- /#portfolioGridContainer -->
         </div>
     </section>
 
@@ -111,6 +114,241 @@
                     </div>
                 </div>
                 <div class="timeline-line"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The NextGen Portfolio Section -->
+    <section class="portfolio-section" id="portfolio">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="portfolio-header">
+                <div class="portfolio-badge">
+                    <span class="badge-dot"></span>
+                    <span>Venture Studio Ecosystem</span>
+                </div>
+                <h2 class="portfolio-title">THE NEXTGEN PORTFOLIO</h2>
+                <p class="portfolio-headline">Ideas don't stay ideas here.</p>
+                <p class="portfolio-subcopy">From first idea to products in the real world — our founders don't build toy projects. We build scalable startups designed for real customers and revenue.</p>
+            </div>
+
+            <!-- 3D Circular Carousel Showcase from React Bits -->
+            <div class="carousel-showcase-box">
+                <div class="portfolio-controls-bar">
+                    <div class="portfolio-controls-tabs">
+                        <button class="portfolio-control-btn active" data-category="all">
+                            <span>All Ventures</span>
+                            <span class="ctrl-count">9</span>
+                        </button>
+                        <button class="portfolio-control-btn" data-category="built">
+                            <span>01 — BUILT</span>
+                            <span class="ctrl-count">6</span>
+                        </button>
+                        <button class="portfolio-control-btn" data-category="building">
+                            <span>02 — BUILDING</span>
+                            <span class="ctrl-count">3</span>
+                        </button>
+                    </div>
+                    <div class="portfolio-interaction-hint">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9l-3 3 3 3M19 9l3 3-3 3M2 12h20"/></svg>
+                        <span>Drag or swipe to rotate cylinder</span>
+                    </div>
+                </div>
+
+                <!-- Circular Carousel Ring Component -->
+                <div id="portfolioCarouselStage" style="width: 100%; height: 560px; position: relative;"></div>
+
+                <!-- Synchronized Active Spotlight Card -->
+                <div id="portfolioSpotlight" class="venture-spotlight-card"></div>
+            </div>
+
+            <div id="portfolioGridContainer">
+                <!-- Category 01: BUILT -->
+                <div class="portfolio-group" id="groupBuilt">
+                <div class="group-header">
+                    <div class="group-tag">
+                        <span class="group-num">01</span>
+                        <span class="group-title">BUILT</span>
+                    </div>
+                    <div class="group-text">
+                        <h3 class="group-headline">Ventures brought to life.</h3>
+                        <p class="group-subline">Active products launched, operating, and validated with real users in the field.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-grid">
+                    <!-- 1. X Buddy -->
+                    <article class="venture-card">
+                        <div class="venture-media theme-light">
+                            <img src="assets/portfolio/xbuddy.png" alt="X Buddy Logo" class="venture-logo contain-fit" loading="lazy">
+                        </div>
+                        <div class="venture-body">
+                            <div class="venture-meta">
+                                <span class="venture-sector">Print Tech &amp; Logistics</span>
+                                <span class="venture-status status-live">Live</span>
+                            </div>
+                            <h4 class="venture-name">X Buddy</h4>
+                            <p class="venture-desc">Automated on-demand campus printing platform. Upload documents, pay securely online, and pick up without queuing.</p>
+                            <div class="venture-tagline">Upload • Pay • Print</div>
+                        </div>
+                    </article>
+
+                    <!-- 2. RideMate -->
+                    <article class="venture-card">
+                        <div class="venture-media theme-dark-contrast">
+                            <img src="assets/portfolio/ridemate.png" alt="RideMate Logo" class="venture-logo contain-fit" loading="lazy">
+                        </div>
+                        <div class="venture-body">
+                            <div class="venture-meta">
+                                <span class="venture-sector">Mobility &amp; Transit</span>
+                                <span class="venture-status status-live">Live</span>
+                            </div>
+                            <h4 class="venture-name">RideMate</h4>
+                            <p class="venture-desc">Peer-to-peer campus ride sharing network uniting student commuters to cut daily travel costs and transit friction.</p>
+                            <div class="venture-tagline">Shared Student Commuting</div>
+                        </div>
+                    </article>
+
+                    <!-- 3. Dum Culture -->
+                    <article class="venture-card">
+                        <div class="venture-media theme-dark">
+                            <img src="assets/portfolio/cards/dumculture.png" alt="Dum Culture Logo" class="venture-logo contain-fit" loading="lazy">
+                        </div>
+                        <div class="venture-body">
+                            <div class="venture-meta">
+                                <span class="venture-sector">FoodTech &amp; Culinary</span>
+                                <span class="venture-status status-live">Active</span>
+                            </div>
+                            <h4 class="venture-name">Dum Culture</h4>
+                            <p class="venture-desc">Specialty culinary brand blending traditional dum cooking heritage with cloud kitchen scalability and fast student delivery.</p>
+                            <div class="venture-tagline">Authentic Heritage Culinary</div>
+                        </div>
+                    </article>
+
+                    <!-- 4. Medhass -->
+                    <article class="venture-card">
+                        <div class="venture-media theme-warm">
+                            <img src="assets/portfolio/medhass.jpg" alt="Medhass Logo" class="venture-logo contain-fit" loading="lazy">
+                        </div>
+                        <div class="venture-body">
+                            <div class="venture-meta">
+                                <span class="venture-sector">EdTech &amp; Campus Intel</span>
+                                <span class="venture-status status-live">Live</span>
+                            </div>
+                            <h4 class="venture-name">Medhass</h4>
+                            <p class="venture-desc">Intelligent student academic and access ecosystem unifying campus records, attendance intelligence, and learning workflows.</p>
+                            <div class="venture-tagline">Academic Intelligence Ecosystem</div>
+                        </div>
+                    </article>
+
+                    <!-- 5. GestureSnap -->
+                    <article class="venture-card">
+                        <div class="venture-media theme-dark">
+                            <img src="assets/portfolio/cards/gesturesnap.png" alt="GestureSnap Logo" class="venture-logo contain-fit" loading="lazy">
+                        </div>
+                        <div class="venture-body">
+                            <div class="venture-meta">
+                                <span class="venture-sector">Computer Vision &amp; HCI</span>
+                                <span class="venture-status status-live">Live</span>
+                            </div>
+                            <h4 class="venture-name">GestureSnap</h4>
+                            <p class="venture-desc">Touchless computer-vision interface software enabling intuitive hand-gesture control across digital displays and kiosks.</p>
+                            <div class="venture-tagline">Touchless Vision Interface</div>
+                        </div>
+                    </article>
+
+                    <!-- 6. Placement Suit -->
+                    <article class="venture-card">
+                        <div class="venture-media theme-dark">
+                            <img src="assets/portfolio/placement-suite.png" alt="Placement Suit Logo" class="venture-logo contain-fit" loading="lazy">
+                        </div>
+                        <div class="venture-body">
+                            <div class="venture-meta">
+                                <span class="venture-sector">CareerTech &amp; AI Prep</span>
+                                <span class="venture-status status-live">Live</span>
+                            </div>
+                            <h4 class="venture-name">Placement Suit</h4>
+                            <p class="venture-desc">End-to-end recruitment readiness platform featuring AI mock assessments, resume targeting, and placement training benchmarks.</p>
+                            <div class="venture-tagline">Placement Readiness Platform</div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Category 02: BUILDING -->
+            <div class="portfolio-group" id="groupBuilding">
+                <div class="group-header">
+                    <div class="group-tag building-tag">
+                        <span class="group-num">02</span>
+                        <span class="group-title">BUILDING</span>
+                    </div>
+                    <div class="group-text">
+                        <h3 class="group-headline">The next ventures in motion.</h3>
+                        <p class="group-subline">Early-stage ventures currently undergoing rapid prototyping, customer validation, and private testing.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-grid grid-building">
+                    <!-- 1. HoloLearn AI -->
+                    <article class="venture-card">
+                        <div class="venture-media theme-dark">
+                            <img src="assets/portfolio/cards/hololearn.png" alt="HoloLearn AI Logo" class="venture-logo contain-fit" loading="lazy">
+                        </div>
+                        <div class="venture-body">
+                            <div class="venture-meta">
+                                <span class="venture-sector">Spatial Computing &amp; AI</span>
+                                <span class="venture-status status-building">In Alpha</span>
+                            </div>
+                            <h4 class="venture-name">HoloLearn AI</h4>
+                            <p class="venture-desc">Immersive spatial computing learning suite converting technical engineering concepts into interactive holographic simulations.</p>
+                            <div class="venture-tagline">Spatial Intelligence For Learning</div>
+                        </div>
+                    </article>
+
+                    <!-- 2. Redz -->
+                    <article class="venture-card">
+                        <div class="venture-media theme-dark">
+                            <img src="assets/portfolio/cards/redz.png" alt="Redz Logo" class="venture-logo contain-fit" loading="lazy">
+                        </div>
+                        <div class="venture-body">
+                            <div class="venture-meta">
+                                <span class="venture-sector">Consumer Tech &amp; Social</span>
+                                <span class="venture-status status-building">Prototyping</span>
+                            </div>
+                            <h4 class="venture-name">Redz</h4>
+                            <p class="venture-desc">Next-generation youth consumer platform engineered to empower student creator networks, events, and campus culture.</p>
+                            <div class="venture-tagline">Youth Consumer Platform</div>
+                        </div>
+                    </article>
+
+                    <!-- 3. Shakthi AI -->
+                    <article class="venture-card">
+                        <div class="venture-media theme-dark">
+                            <img src="assets/portfolio/shakthi-ai.jpg" alt="Shakthi AI Logo" class="venture-logo contain-fit" loading="lazy">
+                        </div>
+                        <div class="venture-body">
+                            <div class="venture-meta">
+                                <span class="venture-sector">SafetyTech &amp; AI Defense</span>
+                                <span class="venture-status status-building">In Active Dev</span>
+                            </div>
+                            <h4 class="venture-name">Shakthi AI</h4>
+                            <p class="venture-desc">Autonomous women-safety ecosystem combining intelligent threat triggers with instant emergency broadcast and responder routing.</p>
+                            <div class="venture-tagline">Autonomous Protection Engine</div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Section Teaser: MORE TO COME -->
+            <div class="portfolio-more-card">
+                <div class="more-content">
+                    <span class="more-label">MORE TO COME</span>
+                    <h4 class="more-heading">New ventures are continually incubating in our studio.</h4>
+                    <p class="more-description">NextGen Labs empowers ambitious student founders from day zero — providing validation rigor, technical co-founders, and market momentum to launch companies that matter.</p>
+                </div>
+                <div class="more-action">
+                    <a href="#join" class="btn-primary more-btn">Apply to Build Your Startup</a>
+                </div>
             </div>
         </div>
     </section>
@@ -219,6 +457,8 @@
         </div>
     </footer>
 
+    <script src="circular-carousel-vanilla.js"></script>
+    <script src="portfolio-carousel.js"></script>
     <script src="script.js"></script>
 </body>
 

@@ -592,7 +592,576 @@ footer p {
     }
 }
 
+/* ==================================================
+   THE NEXTGEN PORTFOLIO (Venture Studio Portfolio)
+   ================================================== */
+.portfolio-section {
+    padding: 7rem 0 5rem;
+    position: relative;
+}
+
+.portfolio-header {
+    max-width: 820px;
+    margin: 0 auto 4.5rem;
+    text-align: center;
+}
+
+.portfolio-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    margin-bottom: 1.25rem;
+}
+
+.portfolio-badge .badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--primary);
+    box-shadow: 0 0 0 3px rgba(255, 61, 0, 0.2);
+}
+
+.portfolio-title {
+    font-size: 0.95rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+}
+
+.portfolio-headline {
+    font-size: 2.85rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: #121316;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+}
+
+.portfolio-subcopy {
+    font-size: 1.1rem;
+    color: #55575E;
+    line-height: 1.6;
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+/* Carousel 3D Showcase Presentation */
+.carousel-showcase-box {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 249, 246, 0.9) 100%);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    border-radius: 24px;
+    padding: 2rem 1.5rem 2.5rem;
+    box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.04);
+    margin-bottom: 5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-controls-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.portfolio-controls-tabs {
+    display: inline-flex;
+    background: #EFECE6;
+    padding: 0.35rem;
+    border-radius: 12px;
+    gap: 0.25rem;
+}
+
+.portfolio-control-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+    background: transparent;
+    padding: 0.6rem 1.2rem;
+    border-radius: 9px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #606269;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    font-family: inherit;
+}
+
+.portfolio-control-btn:hover {
+    color: #121316;
+}
+
+.portfolio-control-btn.active {
+    background: #FFFFFF;
+    color: #121316;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.portfolio-control-btn .ctrl-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.06);
+    color: #555;
+    transition: all 0.2s ease;
+}
+
+.portfolio-control-btn.active .ctrl-count {
+    background: var(--primary);
+    color: #FFFFFF;
+}
+
+.portfolio-interaction-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #8A8D98;
+    letter-spacing: 0.02em;
+}
+
+.portfolio-interaction-hint svg {
+    color: var(--primary);
+    animation: nudgeX 2s ease-in-out infinite;
+}
+
+@keyframes nudgeX {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(4px); }
+}
+
+/* Spotlight Card below Carousel */
+.venture-spotlight-card {
+    max-width: 820px;
+    margin: 1.5rem auto 0;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 6px 20px -6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.spotlight-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.spotlight-left {
+    flex: 1;
+}
+
+.spotlight-tag-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.4rem;
+}
+
+.spotlight-category {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #72747D;
+}
+
+.spotlight-status {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+}
+
+.spotlight-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #121316;
+    letter-spacing: -0.015em;
+    margin-bottom: 0.35rem;
+}
+
+.spotlight-desc {
+    font-size: 0.92rem;
+    color: #55575E;
+    line-height: 1.55;
+    margin: 0;
+}
+
+.spotlight-right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.35rem;
+    flex-shrink: 0;
+}
+
+.spotlight-tagline {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--primary);
+}
+
+.spotlight-meta {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #8C8E97;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+    .spotlight-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    .spotlight-right {
+        align-items: flex-start;
+        text-align: left;
+    }
+}
+
+/* Category Groups */
+.portfolio-group {
+    margin-bottom: 5rem;
+}
+
+.group-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding-bottom: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.group-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.85rem;
+    background: #18191E;
+    color: #FFFFFF;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.group-tag.building-tag {
+    background: #FF5722;
+}
+
+.group-num {
+    opacity: 0.7;
+    font-family: monospace;
+}
+
+.group-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.group-headline {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #15161A;
+    letter-spacing: -0.01em;
+}
+
+.group-subline {
+    font-size: 0.92rem;
+    color: #6A6C74;
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+}
+
+/* Venture Card */
+.venture-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    border-radius: 16px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+}
+
+.venture-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 61, 0, 0.35);
+    box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.08);
+}
+
+/* Media Presentation Surface */
+.venture-media {
+    width: 100%;
+    height: 195px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+    padding: 1.25rem;
+}
+
+.venture-media.theme-light {
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.venture-media.theme-warm {
+    background: #FAF7F2;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.venture-media.theme-dark {
+    background: #0D0E13;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.venture-media.theme-dark-contrast {
+    background: #0A130E;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.venture-media.theme-editorial {
+    background: #F5F3EF;
+    border: 1px dashed rgba(0, 0, 0, 0.15);
+}
+
+/* Logo Presentation */
+.venture-logo {
+    max-width: 90%;
+    max-height: 85%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.venture-card:hover .venture-logo {
+    transform: scale(1.025);
+}
+
+/* Elegant Asset In Curation Placeholders */
+.venture-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    text-align: center;
+    width: 100%;
+}
+
+.placeholder-monogram {
+    width: 54px;
+    height: 54px;
+    border-radius: 12px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #1A1B20;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.placeholder-note {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #8C8E97;
+}
+
+/* Venture Body */
+.venture-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.venture-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.6rem;
+}
+
+.venture-sector {
+    font-size: 0.73rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #72747D;
+}
+
+.venture-status {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+}
+
+.venture-status.status-live {
+    background: #EAF7EE;
+    color: #138347;
+    border: 1px solid rgba(19, 131, 71, 0.2);
+}
+
+.venture-status.status-building {
+    background: #FFF4E5;
+    color: #CC5A00;
+    border: 1px solid rgba(204, 90, 0, 0.25);
+}
+
+.venture-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #15161A;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.015em;
+}
+
+.venture-desc {
+    font-size: 0.9rem;
+    color: #55575E;
+    line-height: 1.55;
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
+}
+
+.venture-tagline {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--primary);
+    padding-top: 0.85rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Portfolio More Card */
+.portfolio-more-card {
+    background: #14161C;
+    color: #FFFFFF;
+    border-radius: 20px;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+    margin-top: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio-more-card .more-content {
+    max-width: 620px;
+}
+
+.portfolio-more-card .more-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+}
+
+.portfolio-more-card .more-heading {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #FFFFFF;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+}
+
+.portfolio-more-card .more-description {
+    font-size: 0.95rem;
+    color: #A0A3AF;
+    line-height: 1.6;
+}
+
+.portfolio-more-card .more-action {
+    flex-shrink: 0;
+}
+
+.portfolio-more-card .more-btn {
+    white-space: nowrap;
+    padding: 0.9rem 2.2rem;
+}
+
 /* Responsive adjustments */
+@media (max-width: 992px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .portfolio-more-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2.25rem;
+        gap: 1.75rem;
+    }
+
+    .portfolio-more-card .more-action {
+        width: 100%;
+    }
+
+    .portfolio-more-card .more-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
 @media (max-width: 768px) {
     .nav-links {
         display: none;
@@ -600,6 +1169,16 @@ footer p {
 
     .hero h1 {
         font-size: 3rem;
+    }
+
+    .portfolio-headline {
+        font-size: 2.15rem;
+    }
+
+    .group-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6rem;
     }
 
     .grid-2 {
@@ -619,5 +1198,15 @@ footer p {
 
     .timeline-line {
         display: none;
+    }
+}
+
+@media (max-width: 580px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-headline {
+        font-size: 1.85rem;
     }
 }
