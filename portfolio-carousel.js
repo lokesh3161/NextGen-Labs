@@ -14,7 +14,8 @@ const PORTFOLIO_DATA = {
       category: 'Print Tech & Logistics',
       status: 'Live',
       tagline: 'Upload • Pay • Print',
-      desc: 'Automated on-demand campus printing platform. Upload documents, pay securely online, and pick up without queuing.'
+      desc: 'Automated on-demand campus printing platform. Upload documents, pay securely online, and pick up without queuing.',
+      url: 'https://xbuddysrkr.vercel.app'
     },
     {
       id: 'ridemate',
@@ -25,7 +26,8 @@ const PORTFOLIO_DATA = {
       category: 'Mobility & Transit',
       status: 'Live',
       tagline: 'Shared Student Commuting',
-      desc: 'Peer-to-peer campus ride sharing network uniting student commuters to cut daily travel costs and transit friction.'
+      desc: 'Peer-to-peer campus ride sharing network uniting student commuters to cut daily travel costs and transit friction.',
+      url: 'https://www.ridemate.company/auth'
     },
     {
       id: 'dumculture',
@@ -36,7 +38,8 @@ const PORTFOLIO_DATA = {
       category: 'FoodTech & Culinary',
       status: 'Active',
       tagline: 'Authentic Heritage Culinary',
-      desc: 'Specialty culinary brand blending traditional dum cooking heritage with cloud kitchen scalability and fast student delivery.'
+      desc: 'Specialty culinary brand blending traditional dum cooking heritage with cloud kitchen scalability and fast student delivery.',
+      url: 'https://dum-culture.vercel.app/'
     },
     {
       id: 'medhass',
@@ -47,7 +50,8 @@ const PORTFOLIO_DATA = {
       category: 'EdTech & Campus Intel',
       status: 'Live',
       tagline: 'Academic Intelligence Ecosystem',
-      desc: 'Intelligent student academic and access ecosystem unifying campus records, attendance intelligence, and learning workflows.'
+      desc: 'Intelligent student academic and access ecosystem unifying campus records, attendance intelligence, and learning workflows.',
+      url: 'https://medhass.vercel.app'
     },
     {
       id: 'gesturesnap',
@@ -58,7 +62,8 @@ const PORTFOLIO_DATA = {
       category: 'Computer Vision & HCI',
       status: 'Live',
       tagline: 'Touchless Vision Interface',
-      desc: 'Touchless computer-vision interface software enabling intuitive hand-gesture control across digital displays and kiosks.'
+      desc: 'Touchless computer-vision interface software enabling intuitive hand-gesture control across digital displays and kiosks.',
+      url: 'https://gesturesnap2.netlify.app/'
     },
     {
       id: 'placementsuit',
@@ -69,7 +74,8 @@ const PORTFOLIO_DATA = {
       category: 'CareerTech & AI Prep',
       status: 'Live',
       tagline: 'Placement Readiness Platform',
-      desc: 'End-to-end recruitment readiness platform featuring AI mock assessments, resume targeting, and placement training benchmarks.'
+      desc: 'End-to-end recruitment readiness platform featuring AI mock assessments, resume targeting, and placement training benchmarks.',
+      url: 'https://placement-suite-two.vercel.app'
     }
   ],
   building: [
@@ -145,7 +151,14 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div class="spotlight-right">
           <div class="spotlight-tagline">${item.tagline}</div>
-          <span class="spotlight-meta">NextGen Studio Venture</span>
+          ${item.url ? `
+            <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="spotlight-visit-btn" title="Launch ${item.title}">
+              <span>Launch Product</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          ` : `
+            <span class="spotlight-meta">NextGen Studio Venture</span>
+          `}
         </div>
       </div>
     `;
@@ -190,6 +203,9 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       onItemClick: (item, index) => {
         updateSpotlight(item);
+        if (item.url) {
+          window.open(item.url, '_blank', 'noopener,noreferrer');
+        }
       }
     });
 

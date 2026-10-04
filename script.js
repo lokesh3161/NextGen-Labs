@@ -63,15 +63,45 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const target = document.querySelector(href);
             if (target) {
-                const navHeight = navbar ? navbar.offsetHeight : 70;
+                const navHeight = navbar ? navbar.offsetHeight : 68;
                 const elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
                 window.scrollTo({
-                    top: Math.max(0, elementPosition - navHeight + 5),
+                    top: Math.max(0, elementPosition - navHeight + 2),
                     behavior: 'smooth'
                 });
             }
         });
     });
+
+    // 3. Active Navigation Scroll-Spy Indicator
+    const sections = document.querySelectorAll('section[id]');
+    const navLinksList = document.querySelectorAll('.nav-link[data-section]');
+
+    function updateActiveNav() {
+        const scrollY = window.pageYOffset;
+        const navHeight = navbar ? navbar.offsetHeight : 68;
+        let currentSectionId = '';
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - navHeight - 80;
+            const sectionHeight = section.offsetHeight;
+            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                currentSectionId = section.getAttribute('id');
+            }
+        });
+
+        navLinksList.forEach(link => {
+            const sectionAttr = link.getAttribute('data-section');
+            if (sectionAttr && sectionAttr === currentSectionId) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+    updateActiveNav();
 
     // 3. Form Submission handled with Google Apps Script
     const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwprKQuShW662r1CAHcmnFnDLSPv-4zS5REo7iXejw-HJcDpJx6FRy4UfTrxMMw151v8Q/exec';

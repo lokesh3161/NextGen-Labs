@@ -14,29 +14,56 @@
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-content">
-            <div class="nav-brand-group">
-                <a href="#" class="logo">
-                    NextGen<span>Labs|SRKR</span>
+    <!-- Header / Navigation -->
+    <header class="header-container" id="siteHeader">
+        <nav class="navbar" id="navbar" aria-label="Main Navigation">
+            <div class="nav-content">
+                <!-- Brand Lockup: NextGen Labs (Primary) & SRKR (Secondary institutional affiliation) -->
+                <a href="#home" class="brand-lockup" aria-label="NextGen Labs homepage">
+                    <div class="brand-emblem-box">
+                        <img src="assets/nextgen-emblem.png" alt="" class="brand-emblem-img" width="34" height="34" aria-hidden="true">
+                    </div>
+                    <div class="brand-identity">
+                        <div class="brand-name">
+                            NextGen <span class="brand-accent">Labs</span>
+                        </div>
+                        <div class="brand-affiliation">
+                            <img src="assets/srkr-seal.png" alt="" class="affiliation-seal" width="13" height="17" aria-hidden="true">
+                            <span class="affiliation-text">SRKR Engineering College</span>
+                        </div>
+                    </div>
                 </a>
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg8rfGT5zKqlni3e4O51WBTk1u1Pwdi14W-i0em2Zj4MaRL_N1jbyY9fDvZMXiBCzTOk4xgBq0atG9Cm4An5aHieWOSapgt9huWQrtkduIUEnznzEZhvLASDqhYj2eKSxO6D_jpVvR8-OMfi-4z9zOK4a0AadZotktz1GWEpGq1SJ-_c-LsjdhYFMrockQm/s982/threelogos.jpg" alt="Partner Logos" class="nav-logo-img">
+
+                <!-- Desktop Nav Items -->
+                <div class="nav-links" id="navLinks" role="navigation">
+                    <div class="nav-links-track">
+                        <a href="#about" class="nav-link" data-section="about">About</a>
+                        <a href="#features" class="nav-link" data-section="features">Features</a>
+                        <a href="#ecosystem" class="nav-link" data-section="ecosystem">Ecosystem</a>
+                        <a href="#portfolio" class="nav-link" data-section="portfolio">Portfolio</a>
+                    </div>
+                    <div class="nav-cta-box">
+                        <a href="#join" class="btn-join-labs" id="headerJoinBtn">
+                            <span>Join the Labs</span>
+                            <svg class="btn-arrow-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+                    </div>
+                    <!-- Mobile drawer institutional caption -->
+                    <div class="mobile-drawer-footer">
+                        <p class="mobile-footer-tagline">Where Every Idea Begins</p>
+                        <p class="mobile-footer-affil">NextGen Labs · SRKR Engineering College</p>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Hamburger Button -->
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+                    <span class="bar bar-1"></span>
+                    <span class="bar bar-2"></span>
+                    <span class="bar bar-3"></span>
+                </button>
             </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-            <div class="nav-links" id="navLinks">
-                <a href="#about" class="nav-link-item">About</a>
-                <a href="#features" class="nav-link-item">Features</a>
-                <a href="#ecosystem" class="nav-link-item">Ecosystem</a>
-                <a href="#portfolio" class="nav-link-item">Portfolio</a>
-                <a href="#join" class="btn-primary small nav-link-item nav-btn">Join Now</a>
-            </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -185,100 +212,100 @@
 
                 <div class="portfolio-grid">
                     <!-- 1. X Buddy -->
-                    <article class="venture-card">
+                    <a href="https://xbuddysrkr.vercel.app" target="_blank" rel="noopener noreferrer" class="venture-card clickable-card" aria-label="Visit X Buddy">
                         <div class="venture-media theme-light">
                             <img src="assets/portfolio/xbuddy.png" alt="X Buddy Logo" class="venture-logo contain-fit" loading="lazy">
                         </div>
                         <div class="venture-body">
                             <div class="venture-meta">
                                 <span class="venture-sector">Print Tech &amp; Logistics</span>
-                                <span class="venture-status status-live">Live</span>
+                                <span class="venture-status status-live">Live ↗</span>
                             </div>
                             <h4 class="venture-name">X Buddy</h4>
                             <p class="venture-desc">Automated on-demand campus printing platform. Upload documents, pay securely online, and pick up without queuing.</p>
                             <div class="venture-tagline">Upload • Pay • Print</div>
                         </div>
-                    </article>
+                    </a>
 
                     <!-- 2. RideMate -->
-                    <article class="venture-card">
+                    <a href="https://www.ridemate.company/auth" target="_blank" rel="noopener noreferrer" class="venture-card clickable-card" aria-label="Visit RideMate">
                         <div class="venture-media theme-dark-contrast">
                             <img src="assets/portfolio/ridemate.png" alt="RideMate Logo" class="venture-logo contain-fit" loading="lazy">
                         </div>
                         <div class="venture-body">
                             <div class="venture-meta">
                                 <span class="venture-sector">Mobility &amp; Transit</span>
-                                <span class="venture-status status-live">Live</span>
+                                <span class="venture-status status-live">Live ↗</span>
                             </div>
                             <h4 class="venture-name">RideMate</h4>
                             <p class="venture-desc">Peer-to-peer campus ride sharing network uniting student commuters to cut daily travel costs and transit friction.</p>
                             <div class="venture-tagline">Shared Student Commuting</div>
                         </div>
-                    </article>
+                    </a>
 
                     <!-- 3. Dum Culture -->
-                    <article class="venture-card">
+                    <a href="https://dum-culture.vercel.app/" target="_blank" rel="noopener noreferrer" class="venture-card clickable-card" aria-label="Visit Dum Culture">
                         <div class="venture-media theme-dark">
                             <img src="assets/portfolio/cards/dumculture.png" alt="Dum Culture Logo" class="venture-logo contain-fit" loading="lazy">
                         </div>
                         <div class="venture-body">
                             <div class="venture-meta">
                                 <span class="venture-sector">FoodTech &amp; Culinary</span>
-                                <span class="venture-status status-live">Active</span>
+                                <span class="venture-status status-live">Active ↗</span>
                             </div>
                             <h4 class="venture-name">Dum Culture</h4>
                             <p class="venture-desc">Specialty culinary brand blending traditional dum cooking heritage with cloud kitchen scalability and fast student delivery.</p>
                             <div class="venture-tagline">Authentic Heritage Culinary</div>
                         </div>
-                    </article>
+                    </a>
 
                     <!-- 4. Medhass -->
-                    <article class="venture-card">
+                    <a href="https://medhass.vercel.app" target="_blank" rel="noopener noreferrer" class="venture-card clickable-card" aria-label="Visit Medhass">
                         <div class="venture-media theme-warm">
                             <img src="assets/portfolio/medhass.jpg" alt="Medhass Logo" class="venture-logo contain-fit" loading="lazy">
                         </div>
                         <div class="venture-body">
                             <div class="venture-meta">
                                 <span class="venture-sector">EdTech &amp; Campus Intel</span>
-                                <span class="venture-status status-live">Live</span>
+                                <span class="venture-status status-live">Live ↗</span>
                             </div>
                             <h4 class="venture-name">Medhass</h4>
                             <p class="venture-desc">Intelligent student academic and access ecosystem unifying campus records, attendance intelligence, and learning workflows.</p>
                             <div class="venture-tagline">Academic Intelligence Ecosystem</div>
                         </div>
-                    </article>
+                    </a>
 
                     <!-- 5. GestureSnap -->
-                    <article class="venture-card">
+                    <a href="https://gesturesnap2.netlify.app/" target="_blank" rel="noopener noreferrer" class="venture-card clickable-card" aria-label="Visit GestureSnap">
                         <div class="venture-media theme-dark">
                             <img src="assets/portfolio/cards/gesturesnap.png" alt="GestureSnap Logo" class="venture-logo contain-fit" loading="lazy">
                         </div>
                         <div class="venture-body">
                             <div class="venture-meta">
                                 <span class="venture-sector">Computer Vision &amp; HCI</span>
-                                <span class="venture-status status-live">Live</span>
+                                <span class="venture-status status-live">Live ↗</span>
                             </div>
                             <h4 class="venture-name">GestureSnap</h4>
                             <p class="venture-desc">Touchless computer-vision interface software enabling intuitive hand-gesture control across digital displays and kiosks.</p>
                             <div class="venture-tagline">Touchless Vision Interface</div>
                         </div>
-                    </article>
+                    </a>
 
                     <!-- 6. Placement Suit -->
-                    <article class="venture-card">
+                    <a href="https://placement-suite-two.vercel.app" target="_blank" rel="noopener noreferrer" class="venture-card clickable-card" aria-label="Visit Placement Suit">
                         <div class="venture-media theme-dark">
                             <img src="assets/portfolio/placement-suite.png" alt="Placement Suit Logo" class="venture-logo contain-fit" loading="lazy">
                         </div>
                         <div class="venture-body">
                             <div class="venture-meta">
                                 <span class="venture-sector">CareerTech &amp; AI Prep</span>
-                                <span class="venture-status status-live">Live</span>
+                                <span class="venture-status status-live">Live ↗</span>
                             </div>
                             <h4 class="venture-name">Placement Suit</h4>
                             <p class="venture-desc">End-to-end recruitment readiness platform featuring AI mock assessments, resume targeting, and placement training benchmarks.</p>
                             <div class="venture-tagline">Placement Readiness Platform</div>
                         </div>
-                    </article>
+                    </a>
                 </div>
             </div>
 
