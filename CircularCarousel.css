@@ -44,6 +44,11 @@
   mask-image: linear-gradient(to right, transparent, #000000 12%, #000000 88%, transparent);
 }
 
+.circular-carousel[data-shape='cylinder'] .circular-carousel__view {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000000 5%, #000000 95%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000000 5%, #000000 95%, transparent 100%);
+}
+
 .circular-carousel__stage {
   position: absolute;
   inset: 0;

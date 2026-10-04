@@ -1722,7 +1722,7 @@ html, body {
     }
 
     .portfolio-carousel-stage {
-        height: 420px;
+        height: 470px;
     }
 
     .portfolio-controls-bar {
@@ -1924,7 +1924,7 @@ html, body {
 
     /* 3D Carousel Stage on small phones */
     .portfolio-carousel-stage {
-        height: 360px;
+        height: 450px;
     }
 
     .portfolio-headline {
@@ -1991,7 +1991,7 @@ html, body {
     }
 
     .portfolio-carousel-stage {
-        height: 320px;
+        height: 420px;
     }
 
     .stage-number {

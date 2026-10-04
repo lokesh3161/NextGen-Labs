@@ -172,15 +172,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const items = getItemsForCategory(cat);
     const width = window.innerWidth;
-    let cardWidth = 220;
+    let cardWidth = 240;
     if (width < 380) {
-      cardWidth = 140;
-    } else if (width < 520) {
-      cardWidth = 160;
+      cardWidth = 200;
+    } else if (width < 480) {
+      cardWidth = 215;
     } else if (width < 768) {
-      cardWidth = 185;
+      cardWidth = 225;
     } else if (width < 1024) {
-      cardWidth = 205;
+      cardWidth = 235;
     }
 
     carouselInstance = window.CircularCarousel(container, {
@@ -188,6 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
       preset: 'cylinder',
       intro: 'rise',
       cardWidth: cardWidth,
+      fitMode: 'viewport',
       aspectRatio: 1,
       speed: 14,
       captions: true,

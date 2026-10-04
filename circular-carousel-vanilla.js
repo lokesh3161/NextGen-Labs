@@ -181,7 +181,8 @@
       innerShade: options.innerShade !== undefined ? options.innerShade : 0.6,
       cornerRadius: options.cornerRadius !== undefined ? options.cornerRadius : 12,
       captions: Boolean(options.captions),
-      focusOnClick: options.focusOnClick !== undefined ? options.focusOnClick : true
+      focusOnClick: options.focusOnClick !== undefined ? options.focusOnClick : true,
+      fitMode: options.fitMode || 'viewport'
     };
 
     const state = {
@@ -435,7 +436,21 @@
 
       const spanX = Math.max(maxX - minX, 1);
       const spanY = Math.max(maxY - minY, 1);
-      const fit = Math.min(1, width / spanX, height / spanY);
+
+      // Responsive fitting:
+      // On mobile / narrow screens, avoid crushing the card down by fitting all 360 degrees of the cylinder.
+      // Instead, allow the active front card to occupy up to ~78% of container width so side cards peek in.
+      const maxFrontCardW = rect.width * 0.78;
+      const frontFitX = Math.min(1, maxFrontCardW / settings.cardW);
+      const heightFit = Math.min(1, height / spanY);
+
+      let fit;
+      if (settings.fitMode === 'contain') {
+        fit = Math.min(1, width / spanX, heightFit);
+      } else {
+        fit = Math.min(1, frontFitX, heightFit);
+      }
+      fit = Math.max(0.35, fit);
       state.fit = fit;
       state.shift = -((minY + maxY) / 2) * fit - room / 2;
       state.drop = settings.axis === 'x' ? (rect.width / fit) * 0.55 + settings.cardW : (rect.height / fit) * 0.55 + settings.cardH;
